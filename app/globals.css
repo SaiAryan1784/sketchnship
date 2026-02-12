@@ -7,7 +7,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  
+
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-heading: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, monospace;
@@ -68,48 +68,64 @@
 
 :root {
   --radius: 0.5rem;
-  
+
   /* Foundation - Defaulting to Dark Mode aesthetics as primary */
   --background: #0A0E27;
   --foreground: #FFFFFF;
-  
+
   --card: #1A1F3A;
   --card-foreground: #FFFFFF;
-  
+
   --popover: #0A0E27;
   --popover-foreground: #FFFFFF;
-  
-  --primary: #FF6B6B; /* Defaulting to Designer Primary for now, or maybe a neutral */
+
+  --primary: #FF6B6B;
+  /* Defaulting to Designer Primary for now, or maybe a neutral */
   --primary-foreground: #FFFFFF;
-  
-  --secondary: #1A1F3A;
-  --secondary-foreground: #FFFFFF;
-  
-  --muted: #1A1F3A;
-  --muted-foreground: #A1A1AA;
-  
-  --accent: #1A1F3A;
+  /* Foundation - Deepest Navy/Black */
+  --background: #020617;
+  --foreground: #F8FAFC;
+
+  --card: #0F172A;
+  --card-foreground: #F8FAFC;
+
+  --popover: #020617;
+  --popover-foreground: #F8FAFC;
+
+  --primary: #FF0080;
+  --primary-foreground: #FFFFFF;
+
+  --secondary: #1E293B;
+  --secondary-foreground: #F8FAFC;
+
+  --muted: #1E293B;
+  --muted-foreground: #94A3B8;
+
+  --accent: #1E293B;
   --accent-foreground: #FFFFFF;
-  
-  --destructive: #7f1d1d;
+
+  --destructive: #EF4444;
   --destructive-foreground: #FFFFFF;
-  
-  --border: #2E3456;
-  --input: #2E3456;
-  --ring: #FF6B6B;
-  
-  /* Custom Theme Vars */
-  --background-dark: #0A0E27;
-  --background-darker: #1A1F3A;
-  
-  --designer-primary: #FF6B6B;
-  --designer-secondary: #C44569;
-  --designer-accent: #00D9FF;
-  
+
+  --border: #1E293B;
+  --input: #1E293B;
+  --ring: #FF0080;
+
+  /* Custom Theme Vars - Premium Palette */
+  --background-dark: #020617;
+  --background-darker: #0B0F19;
+  /* Slightly lighter for contrast */
+
+  /* Designer: Hot Pink to Cyan */
+  --designer-primary: #FF0080;
+  --designer-secondary: #7928CA;
+  --designer-accent: #00FFCC;
+
+  /* Developer: Matrix Green to Electric Blue */
   --developer-primary: #00FF41;
-  --developer-secondary: #007ACC;
-  --developer-accent: #569CD6;
-  --developer-green: #008F11;
+  --developer-secondary: #0088FF;
+  --developer-accent: #3B82F6;
+  --developer-green: #00FF41;
 
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
@@ -127,27 +143,27 @@
 }
 
 .dark {
-  /* Keeping same values since we are dark-first, but could adjust if needed */
-  --background: #0A0E27;
-  --foreground: #FFFFFF;
-  --card: #1A1F3A;
-  --card-foreground: #FFFFFF;
-  --popover: #0A0E27;
-  --popover-foreground: #FFFFFF;
-  --primary: #FF6B6B;
+  /* Keeping consistent with root as we are dark-first */
+  --background: #020617;
+  --foreground: #F8FAFC;
+  --card: #0F172A;
+  --card-foreground: #F8FAFC;
+  --popover: #020617;
+  --popover-foreground: #F8FAFC;
+  --primary: #FF0080;
   --primary-foreground: #FFFFFF;
-  --secondary: #1A1F3A;
-  --secondary-foreground: #FFFFFF;
-  --muted: #1A1F3A;
-  --muted-foreground: #A1A1AA;
-  --accent: #1A1F3A;
+  --secondary: #1E293B;
+  --secondary-foreground: #F8FAFC;
+  --muted: #1E293B;
+  --muted-foreground: #94A3B8;
+  --accent: #1E293B;
   --accent-foreground: #FFFFFF;
-  --destructive: #7f1d1d;
+  --destructive: #EF4444;
   --destructive-foreground: #FFFFFF;
-  --border: #2E3456;
-  --input: #2E3456;
-  --ring: #FF6B6B;
-  
+  --border: #1E293B;
+  --input: #1E293B;
+  --ring: #FF0080;
+
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
   --sidebar-primary: oklch(0.488 0.243 264.376);
@@ -162,11 +178,17 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground font-sans antialiased;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-heading;
   }
 }
@@ -175,7 +197,7 @@
   .noise-texture {
     position: relative;
   }
-  
+
   .noise-texture::before {
     content: '';
     position: absolute;
@@ -185,11 +207,11 @@
     pointer-events: none;
     z-index: 50;
   }
-  
+
   .text-gradient-designer {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-designer-primary via-designer-secondary to-designer-accent;
   }
-  
+
   .text-gradient-developer {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-developer-primary via-developer-secondary to-developer-accent;
   }
@@ -197,7 +219,7 @@
   .glow-designer {
     box-shadow: 0 0 40px rgba(255, 107, 107, 0.3);
   }
-  
+
   .glow-developer {
     box-shadow: 0 0 40px rgba(0, 255, 65, 0.3);
   }

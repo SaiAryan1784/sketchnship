@@ -1,49 +1,90 @@
 'use client'
 
 import { ScrollReveal } from '@/components/animations/ScrollReveal'
+import { motion } from 'framer-motion'
+
+const sponsors = {
+    platinum: ["TechCorp", "InnovateX", "FutureScale"],
+    gold: ["DevFlow", "PixelPerfect", "CloudNine", "CodeBase"],
+    silver: ["StartUp", "RocketShip", "NextGen", "AlphaBit", "BetaTest"]
+}
+
+const Marquee = ({ children, direction = 1, speed = 20 }: { children: React.ReactNode, direction?: number, speed?: number }) => {
+    return (
+        <div className="flex overflow-hidden w-full relative group">
+            <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background-darker to-transparent z-10" />
+            <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background-darker to-transparent z-10" />
+
+            <motion.div
+                className="flex gap-16 py-8 px-8 items-center min-w-max"
+                animate={{ x: direction === 1 ? [0, -1000] : [-1000, 0] }}
+                transition={{ repeat: Infinity, ease: "linear", duration: speed }}
+            >
+                {children}
+                {children} {/* Duplicate for seamless loop */}
+            </motion.div>
+        </div>
+    )
+}
 
 export const Sponsors = () => {
     return (
-        <section className="py-32 w-full bg-background-darker relative">
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/10 via-background-darker to-background-darker pointer-events-none" />
+        <section className="py-32 w-full bg-background-darker border-t border-white/5 relative">
+            <div className="absolute inset-0 noise-texture opacity-20 pointer-events-none" />
 
-            <div className="container mx-auto px-6 relative z-10">
-                <ScrollReveal width="100%" className="text-center mb-24">
-                    <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6 text-white">
-                        Supported By
+            <div className="container mx-auto px-6 mb-16">
+                <ScrollReveal width="100%" className="text-center">
+                    <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6 tracking-tight">
+                        Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-designer-primary to-developer-green">Partners</span>
                     </h2>
+                    <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                        Supported by the industry's leading visionaries.
+                    </p>
                 </ScrollReveal>
+            </div>
 
-                {/* Platinum */}
-                <div className="mb-20">
-                    <h3 className="text-center text-sm font-mono text-gray-500 mb-8 uppercase tracking-widest">Platinum Sponsors</h3>
-                    <div className="flex flex-wrap justify-center gap-12 items-center grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
-                        {/* Placeholders for logos */}
-                        <div className="w-48 h-16 bg-white/10 rounded flex items-center justify-center text-white/30 font-bold text-xl">LOGO</div>
-                        <div className="w-48 h-16 bg-white/10 rounded flex items-center justify-center text-white/30 font-bold text-xl">LOGO</div>
-                    </div>
-                </div>
-
-                {/* Gold */}
-                <div className="mb-20">
-                    <h3 className="text-center text-sm font-mono text-gray-500 mb-8 uppercase tracking-widest">Gold Sponsors</h3>
-                    <div className="flex flex-wrap justify-center gap-10 items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
-                        <div className="w-32 h-12 bg-white/5 rounded flex items-center justify-center text-white/20 font-bold">LOGO</div>
-                        <div className="w-32 h-12 bg-white/5 rounded flex items-center justify-center text-white/20 font-bold">LOGO</div>
-                        <div className="w-32 h-12 bg-white/5 rounded flex items-center justify-center text-white/20 font-bold">LOGO</div>
-                    </div>
-                </div>
-
-                {/* Silver */}
+            <div className="space-y-12">
+                {/* Platinum Tier */}
                 <div>
-                    <h3 className="text-center text-sm font-mono text-gray-500 mb-8 uppercase tracking-widest">Silver Sponsors</h3>
-                    <div className="flex flex-wrap justify-center gap-8 items-center grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
-                        <div className="w-24 h-10 bg-white/5 rounded flex items-center justify-center text-white/10 font-bold text-sm">LOGO</div>
-                        <div className="w-24 h-10 bg-white/5 rounded flex items-center justify-center text-white/10 font-bold text-sm">LOGO</div>
-                        <div className="w-24 h-10 bg-white/5 rounded flex items-center justify-center text-white/10 font-bold text-sm">LOGO</div>
-                        <div className="w-24 h-10 bg-white/5 rounded flex items-center justify-center text-white/10 font-bold text-sm">LOGO</div>
-                    </div>
+                    <p className="text-center text-sm font-mono text-gray-500 uppercase tracking-widest mb-6">Platinum Sponsors</p>
+                    <Marquee speed={30}>
+                        {sponsors.platinum.map((logo, i) => (
+                            <div key={i} className="text-4xl md:text-6xl font-black text-white/10 hover:text-white/80 transition-colors uppercase tracking-widest cursor-pointer">
+                                {logo}
+                            </div>
+                        ))}
+                    </Marquee>
                 </div>
+
+                {/* Gold Tier */}
+                <div>
+                    <p className="text-center text-sm font-mono text-gray-500 uppercase tracking-widest mb-6">Gold Sponsors</p>
+                    <Marquee direction={-1} speed={40}>
+                        {sponsors.gold.map((logo, i) => (
+                            <div key={i} className="text-3xl md:text-5xl font-bold text-white/10 hover:text-designer-primary/80 transition-colors uppercase tracking-widest cursor-pointer">
+                                {logo}
+                            </div>
+                        ))}
+                    </Marquee>
+                </div>
+
+                {/* Silver Tier */}
+                <div>
+                    <p className="text-center text-sm font-mono text-gray-500 uppercase tracking-widest mb-6">Silver Sponsors</p>
+                    <Marquee speed={50}>
+                        {sponsors.silver.map((logo, i) => (
+                            <div key={i} className="text-2xl md:text-4xl font-bold text-white/10 hover:text-developer-green/80 transition-colors uppercase tracking-widest cursor-pointer">
+                                {logo}
+                            </div>
+                        ))}
+                    </Marquee>
+                </div>
+            </div>
+
+            <div className="text-center mt-24">
+                <a href="#" className="inline-block border-b border-white/20 text-white/60 hover:text-white hover:border-white transition-colors pb-1">
+                    Interested in sponsoring? Download our prospectus.
+                </a>
             </div>
         </section>
     )
