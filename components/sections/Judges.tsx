@@ -11,7 +11,7 @@ const judges = [
         company: "Google",
         image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&h=500&fit=crop",
         tags: ["UX", "Design Systems"],
-        gradient: "from-blue-500 to-cyan-400"
+        accentColor: "bg-cyan-400"
     },
     {
         name: "Alex Rivera",
@@ -19,7 +19,7 @@ const judges = [
         company: "Vercel",
         image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500&h=500&fit=crop",
         tags: ["Frontend", "Performance"],
-        gradient: "from-black to-gray-800"
+        accentColor: "bg-white"
     },
     {
         name: "Jessica Wu",
@@ -27,7 +27,7 @@ const judges = [
         company: "Figma",
         image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=500&h=500&fit=crop",
         tags: ["Brand", "Visual Design"],
-        gradient: "from-purple-500 to-pink-500"
+        accentColor: "bg-designer-primary"
     },
     {
         name: "David Kim",
@@ -35,7 +35,7 @@ const judges = [
         company: "StartupInc",
         image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=500&fit=crop",
         tags: ["Scale", "Architecture"],
-        gradient: "from-green-500 to-emerald-400"
+        accentColor: "bg-developer-green"
     }
 ]
 
@@ -45,7 +45,7 @@ export const Judges = () => {
             <div className="container mx-auto px-6">
                 <ScrollReveal width="100%" className="text-center mb-24">
                     <h2 className="text-5xl md:text-7xl font-bold font-heading mb-6 text-white tracking-tight">
-                        The <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Jury</span>
+                        The <span className="text-cyan-400">Jury</span>
                     </h2>
                     <p className="text-xl text-muted-foreground">Experts from top tech giants.</p>
                 </ScrollReveal>
@@ -75,10 +75,10 @@ export const Judges = () => {
 
                                     {/* Back Side */}
                                     <div className="absolute inset-0 h-full w-full rounded-3xl bg-background-card p-8 [transform:rotateY(180deg)] [backface-visibility:hidden] border border-white/10 flex flex-col justify-between overflow-hidden relative">
-                                        <div className={`absolute inset-0 bg-gradient-to-br ${judge.gradient} opacity-10`} />
+                                        <div className={`absolute inset-0 ${judge.accentColor} opacity-5`} />
 
                                         <div className="relative z-10">
-                                            <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${judge.gradient} mb-6 shadow-lg`} />
+                                            <div className={`w-16 h-16 rounded-2xl ${judge.accentColor} opacity-80 mb-6 shadow-lg`} />
                                             <h3 className="text-3xl font-bold text-white mb-2">{judge.name}</h3>
                                             <p className="text-blue-400 font-medium text-lg mb-6">{judge.role}</p>
 

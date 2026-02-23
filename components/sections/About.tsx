@@ -10,7 +10,7 @@ export const About = () => {
             <div className="container mx-auto px-6">
                 <ScrollReveal width="100%" className="text-center mb-24">
                     <h2 className="text-5xl md:text-7xl font-bold font-heading mb-6">
-                        <span className="text-gradient-designer">Two Sides.</span> <span className="text-white">One Vision.</span>
+                        <span className="text-designer-primary">Two Sides.</span> <span className="text-white">One Vision.</span>
                     </h2>
                     <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light">
                         At Sketch-N-Ship, we believe the best products emerge when creative vision meets technical excellence.

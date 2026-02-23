@@ -5,6 +5,7 @@ import { CursorFollower } from '@/components/animations/CursorFollower'
 import { Hero } from '@/components/sections/Hero'
 import { About } from '@/components/sections/About'
 import { Tracks } from '@/components/sections/Tracks'
+import { Navbar } from '@/components/sections/Navbar'
 
 import { Timeline } from '@/components/sections/Timeline'
 import { Prizes } from '@/components/sections/Prizes'
@@ -18,16 +19,17 @@ export default function Home() {
   return (
     <SmoothScroll>
       <CursorFollower />
+      <Navbar />
       <main className="relative min-h-screen bg-background-dark overflow-x-hidden">
         <Hero />
-        <About />
-        <Tracks />
-        <Timeline />
-        <Prizes />
+        <div id="about"><About /></div>
+        <div id="tracks"><Tracks /></div>
+        <div id="timeline"><Timeline /></div>
+        <div id="prizes"><Prizes /></div>
         <Judges />
         <Sponsors />
-        <FAQ />
-        <Registration />
+        <div id="faq"><FAQ /></div>
+        <div id="register"><Registration /></div>
         <Footer />
       </main>
     </SmoothScroll>

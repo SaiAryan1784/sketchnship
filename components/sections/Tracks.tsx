@@ -10,33 +10,33 @@ const tracks = [
         title: "Design Pioneer",
         description: "Push the boundaries of UI/UX. Create interfaces that delight and inspire.",
         icon: Paintbrush,
-        gradient: "from-designer-primary to-designer-secondary",
-        border: "group-hover:border-designer-primary",
+        accentColor: "bg-designer-primary/10",
+        border: "group-hover:border-designer-primary/50",
         iconColor: "text-designer-primary"
     },
     {
         title: "Code Craftsman",
         description: "Architect robust solutions. Clean code, scalable capability, and performance.",
         icon: Code,
-        gradient: "from-developer-primary to-developer-green",
-        border: "group-hover:border-developer-green",
+        accentColor: "bg-developer-green/10",
+        border: "group-hover:border-developer-green/50",
         iconColor: "text-developer-green"
     },
     {
         title: "Fusion Master",
         description: "The perfect blend of form and function. Where design meets engineering.",
         icon: Zap,
-        gradient: "from-purple-500 to-pink-500",
-        border: "group-hover:border-purple-500",
-        iconColor: "text-purple-400"
+        accentColor: "bg-cyan-400/10",
+        border: "group-hover:border-cyan-400/50",
+        iconColor: "text-cyan-400"
     },
     {
         title: "AI Innovation",
         description: "Leverage the power of AI to create intelligent, adaptive experiences.",
         icon: Bot,
-        gradient: "from-blue-400 to-indigo-500",
-        border: "group-hover:border-blue-400",
-        iconColor: "text-blue-400"
+        accentColor: "bg-white/10",
+        border: "group-hover:border-white/30",
+        iconColor: "text-white"
     }
 ]
 
@@ -49,7 +49,7 @@ export const Tracks = () => {
             <div className="container mx-auto px-6 relative z-10">
                 <ScrollReveal className="mb-16 text-center" width="100%">
                     <h2 className="text-4xl md:text-6xl font-bold font-heading mb-4 text-white">
-                        Choose Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-designer-primary to-developer-green">Path</span>
+                        Choose Your <span className="text-cyan-400">Path</span>
                     </h2>
                     <p className="text-muted-foreground max-w-2xl mx-auto">
                         Whether you're a pixel perfectionist or a logic wizard, there's a track for you.
@@ -64,13 +64,13 @@ export const Tracks = () => {
                                 className="h-full"
                             >
                                 <Card className={`h-full bg-background-dark border-border/50 ${track.border} transition-colors duration-300 overflow-hidden group relative`}>
-                                    <div className={`absolute inset-0 opacity-0 group-hover:opacity-10 bg-gradient-to-br ${track.gradient} transition-opacity duration-500`} />
+                                    <div className={`absolute inset-0 opacity-0 group-hover:opacity-5 ${track.accentColor} transition-opacity duration-500`} />
 
                                     <CardHeader>
                                         <div className={`w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center mb-4 group-hover:bg-white/10 transition-colors`}>
                                             <track.icon className={`w-6 h-6 ${track.iconColor}`} />
                                         </div>
-                                        <CardTitle className="text-xl font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-300 transition-all">
+                                        <CardTitle className="text-xl font-bold text-white">
                                             {track.title}
                                         </CardTitle>
                                     </CardHeader>

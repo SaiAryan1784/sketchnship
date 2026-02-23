@@ -67,13 +67,8 @@ export const CursorFollower = () => {
                     opacity: isHovering ? 0.8 : 1
                 }}
                 transition={{ type: 'spring', stiffness: 500, damping: 28 }}
-            >
-                {isHovering && (
-                    <span className="text-black text-[10px] font-bold uppercase tracking-wider">
-                        {isDesignerSide ? 'View' : 'Open'}
-                    </span>
-                )}
-            </motion.div>
+            />
+
 
             {/* Trail effect */}
             <motion.div

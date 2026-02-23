@@ -57,7 +57,7 @@ export const Timeline = () => {
             <div className="container mx-auto px-6 relative">
                 <ScrollReveal width="100%" className="text-center mb-24">
                     <h2 className="text-5xl md:text-7xl font-bold font-heading mb-6 text-white">
-                        The <span className="text-transparent bg-clip-text bg-gradient-to-r from-designer-accent to-developer-accent">Timeline</span>
+                        The <span className="text-cyan-400">Timeline</span>
                     </h2>
                 </ScrollReveal>
 
@@ -66,7 +66,7 @@ export const Timeline = () => {
                     <div className="absolute left-1/2 top-0 bottom-0 w-px bg-white/10 -translate-x-1/2 hidden md:block">
                         <motion.div
                             style={{ height: lineHeight }}
-                            className="w-full bg-gradient-to-b from-designer-primary via-purple-500 to-developer-green"
+                            className="w-full bg-cyan-400"
                         />
                     </div>
 

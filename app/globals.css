@@ -208,19 +208,11 @@
     z-index: 50;
   }
 
-  .text-gradient-designer {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-designer-primary via-designer-secondary to-designer-accent;
-  }
-
-  .text-gradient-developer {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-developer-primary via-developer-secondary to-developer-accent;
-  }
-
   .glow-designer {
-    box-shadow: 0 0 40px rgba(255, 107, 107, 0.3);
+    box-shadow: 0 0 40px rgba(255, 0, 128, 0.15);
   }
 
   .glow-developer {
-    box-shadow: 0 0 40px rgba(0, 255, 65, 0.3);
+    box-shadow: 0 0 40px rgba(0, 255, 65, 0.15);
   }
 }
