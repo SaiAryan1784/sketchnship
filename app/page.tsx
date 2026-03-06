@@ -25,8 +25,8 @@ export default function Home() {
         <div id="about"><About /></div>
         <div id="tracks"><Tracks /></div>
         <div id="timeline"><Timeline /></div>
-        <div id="prizes"><Prizes /></div>
-        <Judges />
+        {/* <div id="prizes"><Prizes /></div> */}
+        {/* <Judges /> */}
         <Sponsors />
         <div id="faq"><FAQ /></div>
         <div id="register"><Registration /></div>

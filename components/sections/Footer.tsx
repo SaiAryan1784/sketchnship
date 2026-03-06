@@ -10,9 +10,17 @@ export const Footer = () => {
                     {/* Brand */}
                     <div>
                         <h3 className="text-2xl font-bold text-white font-heading mb-4">Sketch-N-Ship</h3>
-                        <p className="text-muted-foreground max-w-xs mb-6">
+                        <p className="text-muted-foreground max-w-xs mb-4">
                             Where creative vision meets technical excellence. A hackathon for designers and developers united.
                         </p>
+                        <a
+                            href="https://gdg.community.dev/gdg-noida/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block text-sm text-gray-400 hover:text-white mb-6 transition-colors"
+                        >
+                            Presented by <span className="font-semibold text-white">GDG Noida</span>
+                        </a>
                         <div className="flex gap-4">
                             {[Twitter, Github, Linkedin, Instagram].map((Icon, i) => (
                                 <a key={i} href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 transition-all">

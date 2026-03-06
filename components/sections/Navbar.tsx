@@ -8,7 +8,7 @@ const navLinks = [
     { label: 'About', href: '#about' },
     { label: 'Tracks', href: '#tracks' },
     { label: 'Timeline', href: '#timeline' },
-    { label: 'Prizes', href: '#prizes' },
+    // { label: 'Prizes', href: '#prizes' },
     { label: 'FAQ', href: '#faq' },
 ]
 
@@ -50,8 +50,8 @@ export const Navbar = () => {
                 >
                     {/* Floating pill */}
                     <div className={`flex items-center gap-1 px-2 py-2 rounded-full border transition-all duration-500 ${atTop
-                            ? 'bg-white/[0.04] border-white/8 backdrop-blur-md'
-                            : 'bg-background-dark/80 border-white/10 backdrop-blur-xl shadow-[0_8px_40px_rgba(0,0,0,0.4)]'
+                        ? 'bg-white/[0.04] border-white/8 backdrop-blur-md'
+                        : 'bg-background-dark/80 border-white/10 backdrop-blur-xl shadow-[0_8px_40px_rgba(0,0,0,0.4)]'
                         }`}>
                         {/* Logo */}
                         <button

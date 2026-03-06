@@ -47,7 +47,36 @@ export const Hero = () => {
                 <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-developer-green/5 rounded-full blur-[150px] mix-blend-screen" />
             </div>
 
+            {/* Presented By Badge */}
+            <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="w-full flex justify-center pt-8 md:pt-28 pb-4 relative z-40"
+            >
+                <a
+                    href="https://gdg.community.dev/gdg-noida/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex text-xs md:text-sm items-center gap-2 px-5 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-white/80 hover:text-white hover:bg-white/10 hover:border-white/20 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all cursor-pointer"
+                >
+                    <span className="text-white/60">Presented by</span>
+                    <span className="font-bold tracking-wide px-1">GDG Noida</span>
+                </a>
+            </motion.div>
+
             <div className="flex-1 flex flex-col md:flex-row relative z-20">
+                {/* Center Absolute Elements (Ampersand) */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 pointer-events-none hidden md:flex items-center justify-center">
+                    <motion.div
+                        initial={{ scale: 0, rotate: -45 }}
+                        animate={{ scale: 1, rotate: 0 }}
+                        transition={{ duration: 1, delay: 0.8, type: 'spring' }}
+                        className="w-20 h-20 bg-background-dark/80 backdrop-blur-xl rounded-2xl border border-white/10 flex items-center justify-center shadow-2xl"
+                    >
+                        <span className="text-4xl font-bold text-cyan-400">&</span>
+                    </motion.div>
+                </div>
                 {/* Designer Side (Left) */}
                 <div className="w-full md:w-1/2 flex flex-col justify-center items-center md:items-end px-6 md:px-12 py-12 md:py-0 border-b md:border-b-0 md:border-r border-white/5 relative group transition-all duration-500 hover:bg-white/[0.02]">
                     <div className="absolute inset-0 noise-texture opacity-30 pointer-events-none" />
@@ -131,18 +160,6 @@ export const Hero = () => {
                         </motion.div>
                     </div>
                 </div>
-            </div>
-
-            {/* Center Absolute Elements (Ampersand) */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 pointer-events-none hidden md:flex items-center justify-center">
-                <motion.div
-                    initial={{ scale: 0, rotate: -45 }}
-                    animate={{ scale: 1, rotate: 0 }}
-                    transition={{ duration: 1, delay: 0.8, type: 'spring' }}
-                    className="w-20 h-20 bg-background-dark/80 backdrop-blur-xl rounded-2xl border border-white/10 flex items-center justify-center shadow-2xl"
-                >
-                    <span className="text-4xl font-bold text-cyan-400">&</span>
-                </motion.div>
             </div>
 
             {/* Countdown Section - Fixed at Bottom */}
