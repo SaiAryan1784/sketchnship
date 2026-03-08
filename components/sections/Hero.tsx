@@ -99,11 +99,10 @@ export const Hero = () => {
                             transition={{ duration: 0.8, delay: 0.4 }}
                             className="text-lg md:text-xl text-gray-400 font-light font-sans mb-8 leading-relaxed"
                         >
-                            Where pixels meet passion. <br className="hidden md:block" />
-                            Design interfaces that <span className="text-white font-medium">breathe</span>.
+                            Where pixels meet perfection.
                         </motion.p>
 
-                        <motion.div
+                        {/* <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.6 }}
@@ -115,7 +114,7 @@ export const Hero = () => {
                             >
                                 View Design Tracks
                             </Button>
-                        </motion.div>
+                        </motion.div> */}
                     </div>
                 </div>
 
@@ -141,11 +140,10 @@ export const Hero = () => {
                             transition={{ duration: 0.8, delay: 0.4 }}
                             className="text-lg md:text-xl text-gray-400 font-light font-mono mb-8 leading-relaxed"
                         >
-                            Where code meets production. <br className="hidden md:block" />
-                            Deploy systems that <span className="text-white font-medium">scale</span>.
+                            and code meets production.
                         </motion.p>
 
-                        <motion.div
+                        {/* <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.6 }}
@@ -157,7 +155,7 @@ export const Hero = () => {
                             >
                                 View Dev Tracks
                             </Button>
-                        </motion.div>
+                        </motion.div> */}
                     </div>
                 </div>
             </div>

@@ -10,8 +10,9 @@ export const Footer = () => {
                     {/* Brand */}
                     <div>
                         <h3 className="text-2xl font-bold text-white font-heading mb-4">Sketch-N-Ship</h3>
-                        <p className="text-muted-foreground max-w-xs mb-4">
-                            Where creative vision meets technical excellence. A hackathon for designers and developers united.
+                        <p className="text-muted-foreground max-w-xs mb-4 leading-relaxed">
+                            Where ideas move from <span className="font-bold text-white">sketch to shipped product</span>.<br />
+                            A hackathon bringing designers and developers together to build.
                         </p>
                         <a
                             href="https://gdg.community.dev/gdg-noida/"

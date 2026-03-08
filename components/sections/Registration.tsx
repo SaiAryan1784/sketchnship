@@ -52,8 +52,8 @@ export const Registration = () => {
                         Ready to <br />
                         <span className="text-cyan-400">Sketch & Ship?</span>
                     </h2>
-                    <p className="text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto">
-                        Join 500+ creators for a weekend of innovation, design, and code. Spots are limited!
+                    <p className="text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
+                        Join <span className="font-bold text-white">500+ builders</span> for a high-energy weekend of design, development, and product building. Start with a sketch. End with something real. Spots are limited.
                     </p>
 
                     <TiltButton
@@ -64,7 +64,7 @@ export const Registration = () => {
                     </TiltButton>
 
                     <p className="mt-8 text-sm text-gray-500 font-mono">
-                        Registration closes July 1st • Free for accepted hackers
+                        Registration closes <span className="text-[#a1a100]">June 1st</span> &bull; Free for accepted hackers
                     </p>
                 </ScrollReveal>
             </div>

@@ -7,27 +7,31 @@ import { ScrollReveal } from '@/components/animations/ScrollReveal'
 const faqs = [
     {
         question: "Who can participate?",
-        answer: "Designers, developers, and anyone passionate about creating! Whether you're a student, a professional, or a hobbyist — if you love to build, you're welcome here."
+        answer: "Designers, developers, and anyone who loves building things. Whether you're a student, a professional, or a curious beginner, if you enjoy turning ideas into real projects, you're welcome at Sketch-N-Ship."
     },
     {
-        question: "Do I need a team?",
-        answer: "You can participate solo or in teams of up to 4 people. Don't have a team? No worries! We'll have a team formation session at the beginning of the event."
+        question: "Do I need a team to participate?",
+        answer: "You can join solo or with a team of up to four people. Coming alone? No problem. We'll host a team formation session at the start of the event so participants can meet collaborators and form teams."
     },
     {
-        question: "What does it cost?",
-        answer: "Nothing! Sketch-N-Ship is completely free for all admitted participants. We'll provide food, drinks, and a place to hack."
+        question: "How much does it cost?",
+        answer: "Nothing. Sketch-N-Ship is completely free for accepted participants. We'll provide food, drinks, and a place where you can focus on building."
     },
     {
         question: "What should I bring?",
-        answer: "Bring your laptop, charger, and any hardware you want to hack on. If you're staying overnight, bring a sleeping bag and toiletries."
+        answer: "Bring the essentials (Laptop, Charger, and Any hardware you'd like to hack on). If you plan to stay overnight, you may also want to bring a sleeping bag and basic toiletries."
     },
     {
-        question: "Who owns the IP?",
-        answer: "You do! The team that creates the project owns all intellectual property rights. We just want to see what you build."
+        question: "Who owns the projects built during the hackathon?",
+        answer: "Your team does. You retain full ownership of everything you create during Sketch-N-Ship. We're simply excited to see what you build."
+    },
+    {
+        question: "What happens during the sketch round?",
+        answer: "The hackathon begins with an idea and design phase. Teams present their product concept, problem statement, and design approach. The most promising ideas move forward to the development round where teams begin building."
     },
     {
         question: "Can I start early?",
-        answer: "No, all code and design work must be created during the hackathon. You can bring ideas and sketches, but no pre-written code."
+        answer: "No. All coding and design work must be created during the official hackathon period. You're welcome to come prepared with ideas, research, or sketches but no pre-built projects or pre-written code are allowed."
     }
 ]
 
@@ -40,7 +44,7 @@ export const FAQ = () => {
                 <ScrollReveal width="100%" className="mb-16">
                     <p className="text-cyan-400 font-mono text-sm tracking-widest uppercase mb-4">FAQ</p>
                     <h2 className="text-4xl md:text-5xl font-bold font-heading text-white tracking-tight">
-                        Common questions
+                        Everything You Might Be Wondering
                     </h2>
                 </ScrollReveal>
 
