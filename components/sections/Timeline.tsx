@@ -12,19 +12,19 @@ const timelineEvents = [
         side: "left"
     },
     {
-        date: "June 20",
+        date: "July 25",
         title: "Opening Ceremony",
         description: "Kickoff event with keynote speakers and challenge reveal.",
         side: "right"
     },
     {
-        date: "June 20-21",
+        date: "July 25-26",
         title: "Hack Time",
         description: "48 hours to build, design, iterate, and create magic.",
         side: "left"
     },
     {
-        date: "June 21",
+        date: "July 26",
         title: "Winner Announcement",
         description: "Closing ceremony with awards and celebrations.",
         side: "right"

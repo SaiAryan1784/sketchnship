@@ -64,7 +64,7 @@ export const Registration = () => {
                     </TiltButton>
 
                     <p className="mt-8 text-sm text-gray-500 font-mono">
-                        Registration closes <span className="text-[#a1a100]">June 1st</span> &bull; Free for accepted hackers
+                        Registration closes <span className="text-[#a1a100]">July 10th</span> &bull; Free for accepted hackers
                     </p>
                 </ScrollReveal>
             </div>

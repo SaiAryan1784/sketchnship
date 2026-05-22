@@ -170,7 +170,7 @@ export const Hero = () => {
                 >
                     <div className="text-center md:text-left">
                         <p className="text-white/60 text-xs uppercase tracking-[0.3em] mb-1">Hackathon Begins</p>
-                        <p className="text-white font-bold text-xl">June 20-21, 2026</p>
+                        <p className="text-white font-bold text-xl">July 25-26, 2026</p>
                     </div>
 
                     <div className="scale-75 md:scale-100 origin-center">
