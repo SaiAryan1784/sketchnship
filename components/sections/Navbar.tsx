@@ -1,8 +1,7 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { motion, AnimatePresence, useMotionValueEvent, useScroll } from 'framer-motion'
-import { Button } from '@/components/ui/button'
 
 const navLinks = [
     { label: 'About', href: '#about' },

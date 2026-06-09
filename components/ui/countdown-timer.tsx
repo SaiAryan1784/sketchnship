@@ -9,8 +9,9 @@ interface TimeLeft {
     seconds: number
 }
 
+const targetDate = new Date('2026-07-25T00:00:00')
+
 export const CountdownTimer = () => {
-    const targetDate = new Date('2026-07-25T00:00:00') // Updated to July 25, 2026
     const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 })
 
     useEffect(() => {

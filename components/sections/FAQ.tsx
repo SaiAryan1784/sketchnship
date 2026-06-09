@@ -19,7 +19,7 @@ const faqs = [
     },
     {
         question: "What should I bring?",
-        answer: "Bring the essentials (Laptop, Charger, and Any hardware you'd like to hack on). If you plan to stay overnight, you may also want to bring a sleeping bag and basic toiletries."
+        answer: "Bring the essentials: laptop, charger, and any hardware you'd like to hack on."
     },
     {
         question: "Who owns the projects built during the hackathon?",

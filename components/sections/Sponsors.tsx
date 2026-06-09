@@ -38,7 +38,7 @@ export const Sponsors = () => {
                         Our <span className="text-cyan-400">Partners</span>
                     </h2>
                     <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                        Supported by the industry's leading visionaries.
+                        Supported by the industry&apos;s leading visionaries.
                     </p>
                 </ScrollReveal>
             </div>

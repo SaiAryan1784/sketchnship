@@ -8,8 +8,6 @@ import { Tracks } from '@/components/sections/Tracks'
 import { Navbar } from '@/components/sections/Navbar'
 
 import { Timeline } from '@/components/sections/Timeline'
-import { Prizes } from '@/components/sections/Prizes'
-import { Judges } from '@/components/sections/Judges'
 import { Sponsors } from '@/components/sections/Sponsors'
 import { FAQ } from '@/components/sections/FAQ'
 import { Registration } from '@/components/sections/Registration'
