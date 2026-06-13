@@ -3,11 +3,7 @@
 import { ScrollReveal } from '@/components/animations/ScrollReveal'
 import { motion } from 'framer-motion'
 
-const sponsors = {
-    platinum: ["TechCorp", "InnovateX", "FutureScale"],
-    gold: ["DevFlow", "PixelPerfect", "CloudNine", "CodeBase"],
-    silver: ["StartUp", "RocketShip", "NextGen", "AlphaBit", "BetaTest"]
-}
+const sponsors = ["TBD", "TBD", "TBD", "TBD", "TBD"]
 
 const Marquee = ({ children, direction = 1, speed = 20 }: { children: React.ReactNode, direction?: number, speed?: number }) => {
     return (
@@ -43,47 +39,24 @@ export const Sponsors = () => {
                 </ScrollReveal>
             </div>
 
-            <div className="space-y-12">
-                {/* Platinum Tier */}
-                <div>
-                    <p className="text-center text-sm font-mono text-gray-500 uppercase tracking-widest mb-6">Platinum Sponsors</p>
-                    <Marquee speed={30}>
-                        {sponsors.platinum.map((logo, i) => (
-                            <div key={i} className="text-4xl md:text-6xl font-black text-white/10 hover:text-white/80 transition-colors uppercase tracking-widest cursor-pointer">
-                                {logo}
-                            </div>
-                        ))}
-                    </Marquee>
-                </div>
-
-                {/* Gold Tier */}
-                <div>
-                    <p className="text-center text-sm font-mono text-gray-500 uppercase tracking-widest mb-6">Gold Sponsors</p>
-                    <Marquee direction={-1} speed={40}>
-                        {sponsors.gold.map((logo, i) => (
-                            <div key={i} className="text-3xl md:text-5xl font-bold text-white/10 hover:text-designer-primary/80 transition-colors uppercase tracking-widest cursor-pointer">
-                                {logo}
-                            </div>
-                        ))}
-                    </Marquee>
-                </div>
-
-                {/* Silver Tier */}
-                <div>
-                    <p className="text-center text-sm font-mono text-gray-500 uppercase tracking-widest mb-6">Silver Sponsors</p>
-                    <Marquee speed={50}>
-                        {sponsors.silver.map((logo, i) => (
-                            <div key={i} className="text-2xl md:text-4xl font-bold text-white/10 hover:text-developer-green/80 transition-colors uppercase tracking-widest cursor-pointer">
-                                {logo}
-                            </div>
-                        ))}
-                    </Marquee>
-                </div>
+            <div>
+                <Marquee speed={40}>
+                    {sponsors.map((logo, i) => (
+                        <div key={i} className="text-4xl md:text-6xl font-black text-white/10 uppercase tracking-widest">
+                            {logo}
+                        </div>
+                    ))}
+                </Marquee>
             </div>
 
-            <div className="text-center mt-24">
-                <a href="#" className="inline-block border-b border-white/20 text-white/60 hover:text-white hover:border-white transition-colors pb-1">
-                    Interested in sponsoring? Download our prospectus.
+            <div className="text-center mt-16">
+                <a
+                    href="https://bit.ly/Sketch-n-Ship"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block px-8 py-3 border border-cyan-400/40 text-cyan-400 hover:bg-cyan-400/10 hover:border-cyan-400 transition-colors rounded-lg font-mono text-sm uppercase tracking-widest"
+                >
+                    Want to sponsor us?
                 </a>
             </div>
         </section>
