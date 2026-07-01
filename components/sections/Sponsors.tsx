@@ -42,14 +42,21 @@ export const Sponsors = () => {
                 </ScrollReveal>
             </div>
 
-            <div>
-                <Marquee speed={40}>
+            <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
+                {/* <Marquee speed={40}>
                     {[...sponsors, ...sponsors, ...sponsors].map((sponsor, i) => (
                         <div key={i} className={`flex items-center justify-center h-20 px-8 ${sponsor.dark ? '' : 'bg-white rounded-xl p-3'}`}>
                             <img src={sponsor.logo} alt={sponsor.name} className="h-12 w-auto object-contain" />
                         </div>
                     ))}
-                </Marquee>
+                </Marquee> */}
+                {
+                    sponsors.map((sponsor, i) => (
+                        <div key={i} className={`flex items-center justify-center h-20 px-8 ${sponsor.dark ? '' : 'bg-white rounded-xl p-3'}`}>
+                            <img src={sponsor.logo} alt={sponsor.name} className="h-12 w-auto object-contain" />
+                        </div>
+                    ))
+                }
             </div>
 
             <div className="text-center mt-16">

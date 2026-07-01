@@ -5,7 +5,7 @@ import { motion, AnimatePresence, useMotionValueEvent, useScroll } from 'framer-
 
 const navLinks = [
     { label: 'About', href: '#about' },
-    { label: 'Tracks', href: '#tracks' },
+    // { label: 'Tracks', href: '#tracks' },
     { label: 'Timeline', href: '#timeline' },
     // { label: 'Prizes', href: '#prizes' },
     { label: 'FAQ', href: '#faq' },
