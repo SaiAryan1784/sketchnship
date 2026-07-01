@@ -21,7 +21,7 @@ export default function Home() {
       <main className="relative min-h-screen bg-background-dark overflow-x-hidden">
         <Hero />
         <div id="about"><About /></div>
-        <div id="tracks"><Tracks /></div>
+        {/* <div id="tracks"><Tracks /></div> */}
         <div id="timeline"><Timeline /></div>
         {/* <div id="prizes"><Prizes /></div> */}
         {/* <Judges /> */}

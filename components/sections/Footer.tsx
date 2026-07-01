@@ -42,7 +42,7 @@ export const Footer = () => {
                         <ul className="space-y-4 text-muted-foreground">
                             <li><a href="#about" className="hover:text-designer-primary transition-colors">About</a></li>
                             <li><a href="#timeline" className="hover:text-designer-primary transition-colors">Timeline</a></li>
-                            <li><a href="#tracks" className="hover:text-designer-primary transition-colors">Tracks</a></li>
+                            {/* <li><a href="#tracks" className="hover:text-designer-primary transition-colors">Tracks</a></li> */}
                             <li><a href="#faq" className="hover:text-designer-primary transition-colors">FAQ</a></li>
                             <li><a href="#register" className="hover:text-designer-primary transition-colors">Register</a></li>
                         </ul>
