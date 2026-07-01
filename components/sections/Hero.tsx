@@ -177,13 +177,20 @@ export const Hero = () => {
                         <CountdownTimer />
                     </div>
 
-                    <TiltButton
-                        size="lg"
-                        className="bg-white text-black hover:bg-gray-100 font-bold rounded-full px-10 py-5 text-lg shadow-[0_8px_30px_rgba(255,255,255,0.15)] transition-all duration-300 group"
-                        onClick={() => window.open('https://www.commudle.com/communities/gdg-noida/hackathons/sketch-n-ship/fill-form/84', '_blank')}
-                    >
-                        Register Now <ArrowRight className="ml-2 w-5 h-5 inline-block group-hover:translate-x-1 transition-transform" />
-                    </TiltButton>
+                    <div className="relative inline-block">
+                        <motion.div
+                            className="absolute inset-0 rounded-full bg-cyan-400/50 blur-xl pointer-events-none"
+                            animate={{ scale: [1, 1.15, 1], opacity: [0.6, 0.15, 0.6] }}
+                            transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
+                        />
+                        <TiltButton
+                            size="lg"
+                            className="relative bg-white text-black hover:bg-gray-100 font-bold rounded-full px-10 h-16 text-lg shadow-[0_8px_30px_rgba(255,255,255,0.15)] transition-all duration-300 group"
+                            onClick={() => window.open('https://www.commudle.com/communities/gdg-noida/hackathons/sketch-n-ship/fill-form/84', '_blank')}
+                        >
+                            Register Now <ArrowRight className="ml-2 w-5 h-5 inline-block group-hover:translate-x-1 transition-transform" />
+                        </TiltButton>
+                    </div>
                 </motion.div>
             </div>
         </section>
