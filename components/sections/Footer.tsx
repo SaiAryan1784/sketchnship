@@ -1,6 +1,6 @@
 'use client'
 
-import { Github, Twitter, Linkedin, Instagram, Mail } from 'lucide-react'
+import { Youtube, Twitter, Linkedin, Instagram, Mail } from 'lucide-react'
 
 export const Footer = () => {
     return (
@@ -23,8 +23,13 @@ export const Footer = () => {
                             Presented by <span className="font-semibold text-white">GDG Noida</span>
                         </a>
                         <div className="flex gap-4">
-                            {[Twitter, Github, Linkedin, Instagram].map((Icon, i) => (
-                                <a key={i} href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 transition-all">
+                            {[
+                                { Icon: Twitter, href: 'https://x.com/gdg_noida' },
+                                { Icon: Linkedin, href: 'https://in.linkedin.com/company/noidagdg' },
+                                { Icon: Instagram, href: 'https://www.instagram.com/gdg_noida' },
+                                { Icon: Youtube, href: 'https://www.youtube.com/@gdg_noida' },
+                            ].map(({ Icon, href }, i) => (
+                                <a key={i} href={href} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 transition-all">
                                     <Icon className="w-5 h-5" />
                                 </a>
                             ))}
@@ -74,7 +79,7 @@ export const Footer = () => {
                 </div>
 
                 <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
-                    <p>&copy; 2024 Sketch-N-Ship. All rights reserved.</p>
+                    <p>&copy; 2026 Sketch-N-Ship. All rights reserved.</p>
                     <p>Designed with &lt;3 and [ ]</p>
                 </div>
             </div>
