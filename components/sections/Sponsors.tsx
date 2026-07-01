@@ -1,30 +1,36 @@
 'use client'
 
 import { ScrollReveal } from '@/components/animations/ScrollReveal'
-import { motion } from 'framer-motion'
 
-const sponsors = [
-    { name: "GitHub", logo: "/GitHub.png", dark: false },
-    { name: "Neo4j", logo: "/New4j.png", dark: false },
-]
-
-const Marquee = ({ children, direction = 1, speed = 20 }: { children: React.ReactNode, direction?: number, speed?: number }) => {
-    return (
-        <div className="flex overflow-hidden w-full relative group">
-            <div className="absolute inset-y-0 left-0 w-24 bg-background-darker/80 z-10" style={{ maskImage: 'linear-gradient(to right, black, transparent)' }} />
-            <div className="absolute inset-y-0 right-0 w-24 bg-background-darker/80 z-10" style={{ maskImage: 'linear-gradient(to left, black, transparent)' }} />
-
-            <motion.div
-                className="flex gap-16 py-8 px-8 items-center min-w-max"
-                animate={{ x: direction === 1 ? [0, -1000] : [-1000, 0] }}
-                transition={{ repeat: Infinity, ease: "linear", duration: speed }}
-            >
-                {children}
-                {children} {/* Duplicate for seamless loop */}
-            </motion.div>
-        </div>
-    )
+type Sponsor = {
+    name: string
+    logo: string
+    cardClass?: string
+    imgClass?: string
 }
+
+const sponsorTiers: { tier: string; accent: string; sponsors: Sponsor[] }[] = [
+    {
+        tier: 'Platinum',
+        accent: 'text-cyan-300',
+        sponsors: [{ name: 'Devfolio', logo: '/Devfolio.webp', cardClass: 'bg-white rounded-xl p-3' }],
+    },
+    {
+        tier: 'Gold',
+        accent: 'text-amber-400',
+        sponsors: [{
+            name: 'Neo4j',
+            logo: '/New4j.png',
+            cardClass: 'bg-white rounded-xl p-3',
+            imgClass: 'h-12 w-12 object-cover object-left-bottom',
+        }],
+    },
+    {
+        tier: 'Silver',
+        accent: 'text-slate-300',
+        sponsors: [{ name: 'GitHub', logo: '/GitHub.png', cardClass: 'bg-white rounded-xl p-3' }],
+    },
+]
 
 export const Sponsors = () => {
     return (
@@ -42,21 +48,31 @@ export const Sponsors = () => {
                 </ScrollReveal>
             </div>
 
-            <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
-                {/* <Marquee speed={40}>
-                    {[...sponsors, ...sponsors, ...sponsors].map((sponsor, i) => (
-                        <div key={i} className={`flex items-center justify-center h-20 px-8 ${sponsor.dark ? '' : 'bg-white rounded-xl p-3'}`}>
-                            <img src={sponsor.logo} alt={sponsor.name} className="h-12 w-auto object-contain" />
+            <div className="container mx-auto px-6 flex flex-col items-center gap-10 md:gap-12">
+                {sponsorTiers.map((tier, i) => (
+                    <ScrollReveal key={tier.tier} delay={i * 0.1} width="100%">
+                        <div className="flex flex-col items-center gap-5">
+                            <span className={`font-mono text-xs uppercase tracking-[0.25em] ${tier.accent}`}>
+                                {tier.tier}
+                            </span>
+
+                            <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
+                                {tier.sponsors.map((sponsor) => (
+                                    <div
+                                        key={sponsor.name}
+                                        className={`flex items-center justify-center h-20 px-8 border border-white/10 rounded-xl transition-colors hover:border-white/20 ${sponsor.cardClass ?? 'bg-white rounded-xl p-3'}`}
+                                    >
+                                        <img
+                                            src={sponsor.logo}
+                                            alt={sponsor.name}
+                                            className={`object-contain ${sponsor.imgClass ?? 'h-12 w-auto'}`}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
                         </div>
-                    ))}
-                </Marquee> */}
-                {
-                    sponsors.map((sponsor, i) => (
-                        <div key={i} className={`flex items-center justify-center h-20 px-8 ${sponsor.dark ? '' : 'bg-white rounded-xl p-3'}`}>
-                            <img src={sponsor.logo} alt={sponsor.name} className="h-12 w-auto object-contain" />
-                        </div>
-                    ))
-                }
+                    </ScrollReveal>
+                ))}
             </div>
 
             <div className="text-center mt-16">
