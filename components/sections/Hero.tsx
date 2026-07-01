@@ -180,6 +180,7 @@ export const Hero = () => {
                     <TiltButton
                         size="lg"
                         className="bg-white text-black hover:bg-gray-100 font-bold rounded-full px-10 py-5 text-lg shadow-[0_8px_30px_rgba(255,255,255,0.15)] transition-all duration-300 group"
+                        onClick={() => window.open('https://www.commudle.com/communities/gdg-noida/hackathons/sketch-n-ship/fill-form/84', '_blank')}
                     >
                         Register Now <ArrowRight className="ml-2 w-5 h-5 inline-block group-hover:translate-x-1 transition-transform" />
                     </TiltButton>

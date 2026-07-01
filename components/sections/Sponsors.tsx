@@ -4,7 +4,7 @@ import { ScrollReveal } from '@/components/animations/ScrollReveal'
 import { motion } from 'framer-motion'
 
 const sponsors = [
-    { name: "GitHub", logo: "/GitHub.png", dark: true },
+    { name: "GitHub", logo: "/GitHub.png", dark: false },
     { name: "Neo4j", logo: "/New4j.png", dark: false },
 ]
 

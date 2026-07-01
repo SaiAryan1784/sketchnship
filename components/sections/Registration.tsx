@@ -59,6 +59,7 @@ export const Registration = () => {
                     <TiltButton
                         size="lg"
                         className="h-16 px-12 text-xl font-bold rounded-full bg-white text-black hover:bg-gray-100 shadow-[0_8px_30px_rgba(255,255,255,0.15)] group"
+                        onClick={() => window.open('https://www.commudle.com/communities/gdg-noida/hackathons/sketch-n-ship/fill-form/84', '_blank')}
                     >
                         Secure My Spot <ArrowRight className="ml-2 w-6 h-6 inline-block group-hover:translate-x-1 transition-transform" />
                     </TiltButton>

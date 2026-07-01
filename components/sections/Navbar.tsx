@@ -76,13 +76,15 @@ export const Navbar = () => {
                         </div>
 
                         {/* Register CTA */}
-                        <button
-                            onClick={() => handleNavClick('#register')}
+                        <a
+                            href="https://www.commudle.com/communities/gdg-noida/hackathons/sketch-n-ship/fill-form/84"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="hidden md:flex h-9 px-5 items-center justify-center text-[13px] font-semibold bg-white text-black rounded-full hover:bg-gray-200 transition-colors shrink-0"
                             data-hover="true"
                         >
                             Register
-                        </button>
+                        </a>
 
                         {/* Mobile toggle */}
                         <button
@@ -123,12 +125,14 @@ export const Navbar = () => {
                                     </button>
                                 ))}
                                 <div className="pt-2 px-1">
-                                    <button
-                                        onClick={() => handleNavClick('#register')}
-                                        className="w-full bg-white text-black font-semibold py-2.5 rounded-xl text-sm hover:bg-gray-200 transition-colors"
+                                    <a
+                                        href="https://www.commudle.com/communities/gdg-noida/hackathons/sketch-n-ship/fill-form/84"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="w-full bg-white text-black font-semibold py-2.5 rounded-xl text-sm hover:bg-gray-200 transition-colors block text-center"
                                     >
                                         Register
-                                    </button>
+                                    </a>
                                 </div>
                             </motion.div>
                         )}
