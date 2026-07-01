@@ -37,25 +37,15 @@ export const Footer = () => {
                     </div>
 
                     {/* Links */}
-                    <div className="grid grid-cols-2 gap-8">
-                        <div>
-                            <h4 className="text-white font-bold mb-6">Event</h4>
-                            <ul className="space-y-4 text-muted-foreground">
-                                <li><a href="#" className="hover:text-designer-primary transition-colors">About</a></li>
-                                <li><a href="#" className="hover:text-designer-primary transition-colors">Schedule</a></li>
-                                <li><a href="#" className="hover:text-designer-primary transition-colors">Tracks</a></li>
-                                <li><a href="#" className="hover:text-designer-primary transition-colors">Prizes</a></li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 className="text-white font-bold mb-6">Resources</h4>
-                            <ul className="space-y-4 text-muted-foreground">
-                                <li><a href="#" className="hover:text-developer-green transition-colors">Rules</a></li>
-                                <li><a href="#" className="hover:text-developer-green transition-colors">Code of Conduct</a></li>
-                                <li><a href="#" className="hover:text-developer-green transition-colors">Privacy Policy</a></li>
-                                <li><a href="#" className="hover:text-developer-green transition-colors">Contact</a></li>
-                            </ul>
-                        </div>
+                    <div>
+                        <h4 className="text-white font-bold mb-6">Event</h4>
+                        <ul className="space-y-4 text-muted-foreground">
+                            <li><a href="#about" className="hover:text-designer-primary transition-colors">About</a></li>
+                            <li><a href="#timeline" className="hover:text-designer-primary transition-colors">Timeline</a></li>
+                            <li><a href="#tracks" className="hover:text-designer-primary transition-colors">Tracks</a></li>
+                            <li><a href="#faq" className="hover:text-designer-primary transition-colors">FAQ</a></li>
+                            <li><a href="#register" className="hover:text-designer-primary transition-colors">Register</a></li>
+                        </ul>
                     </div>
 
                     {/* Contact */}
