@@ -97,7 +97,7 @@ export const FAQ = () => {
 
                 <ScrollReveal width="100%" className="mt-12">
                     <p className="text-white/30 text-sm">
-                        Still have questions? <a href="mailto:help@sketchnship.com" className="text-cyan-400 hover:underline">Get in touch</a>
+                        Still have questions? <a href="mailto:noida.gdg@gmail.com" className="text-cyan-400 hover:underline">Get in touch</a>
                     </p>
                 </ScrollReveal>
             </div>

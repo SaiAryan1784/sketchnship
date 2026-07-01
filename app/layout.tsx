@@ -26,6 +26,11 @@ export const metadata: Metadata = {
   title: "Sketch-N-Ship | Where Pixels Meet Production",
   description: "A premier hackathon for designers and developers. Join us to create, collaborate, and ship amazing projects.",
   keywords: ['hackathon', 'design', 'development', 'coding', 'UI/UX'],
+  icons: {
+    icon: '/Sketch N Ship Logo.png',
+    shortcut: '/Sketch N Ship Logo.png',
+    apple: '/Sketch N Ship Logo.png',
+  },
 };
 
 export default function RootLayout({

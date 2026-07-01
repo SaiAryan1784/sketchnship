@@ -66,9 +66,9 @@ export const Footer = () => {
                                 Subscribe
                             </button>
                         </div>
-                        <a href="mailto:hello@sketchnship.com" className="flex items-center text-muted-foreground hover:text-white transition-colors">
+                        <a href="mailto:noida.gdg@gmail.com" className="flex items-center text-muted-foreground hover:text-white transition-colors">
                             <Mail className="w-4 h-4 mr-2" />
-                            hello@sketchnship.com
+                            noida.gdg@gmail.com
                         </a>
                     </div>
                 </div>
