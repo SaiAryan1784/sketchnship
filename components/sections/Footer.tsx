@@ -50,17 +50,16 @@ export const Footer = () => {
 
                     {/* Contact */}
                     <div>
-                        <h4 className="text-white font-bold mb-6">Stay Updated</h4>
-                        <div className="flex gap-2 mb-4">
-                            <input
-                                type="email"
-                                placeholder="Enter your email"
-                                className="bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white placeholder:text-gray-500 focus:outline-none focus:border-designer-primary/50 w-full"
-                            />
-                            <button className="bg-white text-black font-bold px-4 py-2 rounded-lg hover:bg-white/90 transition-colors">
-                                Subscribe
-                            </button>
-                        </div>
+                        <h4 className="text-white font-bold mb-6">Get Involved</h4>
+                        <p className="text-muted-foreground mb-6 leading-relaxed">Spots are limited. Register before they run out.</p>
+                        <a
+                            href="https://www.commudle.com/communities/gdg-noida/hackathons/sketch-n-ship/fill-form/84"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block w-full text-center bg-white text-black font-bold py-3 rounded-lg hover:bg-gray-100 transition-colors mb-4"
+                        >
+                            Register Now
+                        </a>
                         <a href="mailto:noida.gdg@gmail.com" className="flex items-center text-muted-foreground hover:text-white transition-colors">
                             <Mail className="w-4 h-4 mr-2" />
                             noida.gdg@gmail.com
