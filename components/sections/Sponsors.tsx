@@ -3,7 +3,10 @@
 import { ScrollReveal } from '@/components/animations/ScrollReveal'
 import { motion } from 'framer-motion'
 
-const sponsors = ["TBD", "TBD", "TBD", "TBD", "TBD"]
+const sponsors = [
+    { name: "GitHub", logo: "/GitHub.png", dark: true },
+    { name: "Neo4j", logo: "/New4j.png", dark: false },
+]
 
 const Marquee = ({ children, direction = 1, speed = 20 }: { children: React.ReactNode, direction?: number, speed?: number }) => {
     return (
@@ -41,9 +44,9 @@ export const Sponsors = () => {
 
             <div>
                 <Marquee speed={40}>
-                    {sponsors.map((logo, i) => (
-                        <div key={i} className="text-4xl md:text-6xl font-black text-white/10 uppercase tracking-widest">
-                            {logo}
+                    {[...sponsors, ...sponsors, ...sponsors].map((sponsor, i) => (
+                        <div key={i} className={`flex items-center justify-center h-20 px-8 ${sponsor.dark ? '' : 'bg-white rounded-xl p-3'}`}>
+                            <img src={sponsor.logo} alt={sponsor.name} className="h-12 w-auto object-contain" />
                         </div>
                     ))}
                 </Marquee>

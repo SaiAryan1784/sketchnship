@@ -7,31 +7,31 @@ import { ScrollReveal } from '@/components/animations/ScrollReveal'
 const faqs = [
     {
         question: "Who can participate?",
-        answer: "Designers, developers, and anyone who loves building things. Whether you're a student, a professional, or a curious beginner, if you enjoy turning ideas into real projects, you're welcome at Sketch-N-Ship."
+        answer: "Designers, developers, builders, students, professionals, and anyone passionate about creating impactful products. If you enjoy solving problems and bringing ideas to life with AI, Sketch n Ship with AI is for you."
     },
     {
         question: "Do I need a team to participate?",
-        answer: "You can join solo or with a team of up to four people. Coming alone? No problem. We'll host a team formation session at the start of the event so participants can meet collaborators and form teams."
+        answer: "Yes. All participants must register as part of a team consisting of 2 to 4 members. Solo registrations are not allowed. If you're looking for teammates, keep an eye on our community channels where team formation opportunities will be shared."
     },
     {
         question: "How much does it cost?",
-        answer: "Nothing. Sketch-N-Ship is completely free for accepted participants. We'll provide food, drinks, and a place where you can focus on building."
+        answer: "Nothing. Sketch n Ship with AI is completely free for accepted participants. We'll provide food, drinks, workspace, and everything you need to focus on building."
     },
     {
         question: "What should I bring?",
-        answer: "Bring the essentials: laptop, charger, and any hardware you'd like to hack on."
+        answer: "Bring your laptop, charger, and any hardware or tools you'd like to build with. Most importantly, bring your curiosity, creativity, and passion for building."
     },
     {
         question: "Who owns the projects built during the hackathon?",
-        answer: "Your team does. You retain full ownership of everything you create during Sketch-N-Ship. We're simply excited to see what you build."
+        answer: "Your team does. You retain full ownership of everything you create during Sketch n Ship with AI. We're simply here to support and celebrate what you build."
     },
     {
-        question: "What happens during the sketch round?",
-        answer: "The hackathon begins with an idea and design phase. Teams present their product concept, problem statement, and design approach. The most promising ideas move forward to the development round where teams begin building."
+        question: "What is the Innovation Round?",
+        answer: "The Innovation Round is the online qualifying stage of Sketch n Ship with AI. Teams will receive a set of themes and submit their ideas, concepts, prototypes, or early solutions. Submissions will be evaluated based on innovation, problem understanding, feasibility, execution, and potential impact. Selected teams will be invited to the offline hackathon, where a fresh set of problem statements will be revealed and teams will build their solutions during the event."
     },
     {
-        question: "Can I start early?",
-        answer: "No. All coding and design work must be created during the official hackathon period. You're welcome to come prepared with ideas, research, or sketches but no pre-built projects or pre-written code are allowed."
+        question: "Can I start building before the hackathon?",
+        answer: "No. For the offline hackathon, all development work must begin after the official problem statements are announced. Teams may prepare by researching, learning new technologies, and brainstorming ideas, but projects submitted during the hackathon must be built during the event itself."
     }
 ]
 

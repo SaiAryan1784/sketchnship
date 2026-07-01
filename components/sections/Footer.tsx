@@ -9,7 +9,7 @@ export const Footer = () => {
                 <div className="grid md:grid-cols-3 gap-12 mb-16">
                     {/* Brand */}
                     <div>
-                        <h3 className="text-2xl font-bold text-white font-heading mb-4">Sketch-N-Ship</h3>
+                        <img src="/Sketch N Ship Logo.png" alt="Sketch N Ship" className="h-10 w-auto mb-4" />
                         <p className="text-muted-foreground max-w-xs mb-4 leading-relaxed">
                             Where ideas move from <span className="font-bold text-white">sketch to shipped product</span>.<br />
                             A hackathon bringing designers and developers together to build.

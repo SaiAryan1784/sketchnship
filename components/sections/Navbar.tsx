@@ -55,12 +55,10 @@ export const Navbar = () => {
                         {/* Logo */}
                         <button
                             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                            className="w-9 h-9 rounded-full bg-white/8 flex items-center justify-center text-sm font-bold font-heading hover:bg-white/15 transition-colors shrink-0"
+                            className="flex items-center justify-center px-2 h-9 hover:opacity-80 transition-opacity shrink-0"
                             data-hover="true"
                         >
-                            <span className="text-designer-primary">S</span>
-                            <span className="text-white/30 text-xs">&</span>
-                            <span className="text-developer-green">S</span>
+                            <img src="/Sketch N Ship Logo.png" alt="Sketch N Ship" className="h-7 w-auto" />
                         </button>
 
                         {/* Desktop links */}

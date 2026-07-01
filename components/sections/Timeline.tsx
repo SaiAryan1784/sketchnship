@@ -6,28 +6,34 @@ import { useRef } from 'react'
 
 const timelineEvents = [
     {
-        date: "1 April",
+        date: "1 July",
         title: "Registration Opens",
         description: "Submit your application and form your team.",
         side: "left"
     },
     {
-        date: "July 25",
-        title: "Opening Ceremony",
-        description: "Kickoff event with keynote speakers and challenge reveal.",
+        date: "4 July",
+        title: "Tracks Reveal",
+        description: "Round 1 themes and tracks officially announced.",
         side: "right"
     },
     {
-        date: "July 25",
-        title: "Hack Time",
-        description: "12 hours to build, design, iterate, and create magic.",
+        date: "15 July",
+        title: "Submission Closure",
+        description: "Last day to submit your Round 1 entry.",
         side: "left"
     },
     {
-        date: "July 25",
-        title: "Winner Announcement",
-        description: "Closing ceremony with awards and celebrations.",
+        date: "17 July",
+        title: "Shortlist Announced",
+        description: "Selected teams notified and invited to the offline hackathon.",
         side: "right"
+    },
+    {
+        date: "25 July",
+        title: "Offline Hackathon",
+        description: "Fresh problem statements revealed. Build, design, and ship on the day.",
+        side: "left"
     }
 ]
 
