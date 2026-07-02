@@ -1,6 +1,6 @@
 'use client'
 
-import { Youtube, Twitter, Linkedin, Instagram, Mail } from 'lucide-react'
+import { Youtube, Twitter, Linkedin, Instagram, Mail, ArrowRight } from 'lucide-react'
 
 export const Footer = () => {
     return (
@@ -59,6 +59,15 @@ export const Footer = () => {
                             className="inline-block w-full text-center bg-white text-black font-bold py-3 rounded-lg hover:bg-gray-100 transition-colors mb-4"
                         >
                             Register Now
+                        </a>
+                        <a
+                            href="https://bit.ly/sketchnshipdiscord"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center justify-between w-full bg-[#5865F2]/10 border border-[#5865F2]/30 text-[#5865F2] hover:bg-[#5865F2]/20 transition-colors rounded-lg px-4 py-3 mb-4 font-medium text-sm"
+                        >
+                            Looking for teammates? Join our Discord
+                            <ArrowRight className="w-4 h-4 shrink-0 ml-2" />
                         </a>
                         <a href="mailto:noida.gdg@gmail.com" className="flex items-center text-muted-foreground hover:text-white transition-colors">
                             <Mail className="w-4 h-4 mr-2" />
