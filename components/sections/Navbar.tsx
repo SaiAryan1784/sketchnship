@@ -51,7 +51,7 @@ export const Navbar = () => {
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: -100, opacity: 0 }}
                     transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                    className="fixed top-4 left-1/2 -translate-x-1/2 z-50"
+                    className="fixed top-12 left-1/2 -translate-x-1/2 z-50"
                 >
                     {/* Floating pill */}
                     <div className={`flex items-center gap-1 px-2 py-2 rounded-full border transition-all duration-500 ${atTop

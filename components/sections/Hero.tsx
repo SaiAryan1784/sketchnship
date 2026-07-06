@@ -40,7 +40,7 @@ const TiltButton = ({ children, className, ...props }: React.ComponentProps<type
 
 export const Hero = () => {
     return (
-        <section className="relative min-h-screen w-full flex flex-col pt-20 md:pt-0">
+        <section className="relative min-h-screen w-full flex flex-col pt-28 md:pt-8">
             {/* Background Ambience — subtle, no gradients */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
                 <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-designer-primary/5 rounded-full blur-[150px] mix-blend-screen" />
@@ -52,7 +52,7 @@ export const Hero = () => {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
-                className="w-full flex justify-center pt-8 md:pt-28 pb-4 relative z-40"
+                className="w-full flex justify-center pt-10 md:pt-32 pb-4 relative z-40"
             >
                 <a
                     href="https://gdg.community.dev/gdg-noida/"

@@ -6,6 +6,7 @@ import { Hero } from '@/components/sections/Hero'
 import { About } from '@/components/sections/About'
 import { Tracks } from '@/components/sections/Tracks'
 import { Navbar } from '@/components/sections/Navbar'
+import { AnnouncementBar } from '@/components/sections/AnnouncementBar'
 
 import { Timeline } from '@/components/sections/Timeline'
 import { Sponsors } from '@/components/sections/Sponsors'
@@ -17,6 +18,7 @@ export default function Home() {
   return (
     <SmoothScroll>
       <CursorFollower />
+      <AnnouncementBar />
       <Navbar />
       <main className="relative min-h-screen bg-background-dark overflow-x-hidden">
         <Hero />
