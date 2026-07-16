@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 const sponsors = [
     { name: "GitHub", logo: "/GitHub.png", dark: false },
     { name: "Neo4j", logo: "/New4j.png", dark: false },
+    { name: "Notion", logo: "/Notion-Logo--Streamline-Radix.svg", dark: false },
 ]
 
 const Marquee = ({ children, direction = 1, speed = 20 }: { children: React.ReactNode, direction?: number, speed?: number }) => {
