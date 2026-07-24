@@ -1,6 +1,6 @@
 'use client'
 
-import { Youtube, Twitter, Linkedin, Instagram, Mail, ArrowRight } from 'lucide-react'
+import { Youtube, Twitter, Linkedin, Instagram, Mail, ArrowRight, Lock } from 'lucide-react'
 
 export const Footer = () => {
     return (
@@ -42,6 +42,7 @@ export const Footer = () => {
                         <ul className="space-y-4 text-muted-foreground">
                             <li><a href="#about" className="hover:text-designer-primary transition-colors">About</a></li>
                             <li><a href="#timeline" className="hover:text-designer-primary transition-colors">Timeline</a></li>
+                            <li><a href="#agenda" className="hover:text-designer-primary transition-colors">Agenda</a></li>
                             {/* <li><a href="#tracks" className="hover:text-designer-primary transition-colors">Tracks</a></li> */}
                             <li><a href="#faq" className="hover:text-designer-primary transition-colors">FAQ</a></li>
                             <li><a href="#register" className="hover:text-designer-primary transition-colors">Register</a></li>
@@ -51,15 +52,14 @@ export const Footer = () => {
                     {/* Contact */}
                     <div>
                         <h4 className="text-white font-bold mb-6">Get Involved</h4>
-                        <p className="text-muted-foreground mb-6 leading-relaxed">Spots are limited. Register before they run out.</p>
-                        <a
-                            href="https://www.commudle.com/communities/gdg-noida/hackathons/sketch-n-ship/fill-form/84"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-block w-full text-center bg-white text-black font-bold py-3 rounded-lg hover:bg-gray-100 transition-colors mb-4"
+                        <p className="text-muted-foreground mb-6 leading-relaxed">Registration has closed. See you on July 25th.</p>
+                        <span
+                            aria-disabled="true"
+                            className="flex items-center justify-center gap-2 w-full text-center border border-white/10 text-white/35 font-bold py-3 rounded-lg cursor-not-allowed select-none mb-4"
                         >
-                            Register Now
-                        </a>
+                            <Lock className="w-4 h-4" />
+                            Registration Closed
+                        </span>
                         <a
                             href="https://bit.ly/sketchnshipdiscord"
                             target="_blank"

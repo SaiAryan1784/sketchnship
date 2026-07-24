@@ -1,46 +1,16 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Button } from '@/components/ui/button'
 import { CountdownTimer } from '@/components/ui/countdown-timer'
-import { ArrowRight } from 'lucide-react'
-import { useState } from 'react'
+import { Lock } from 'lucide-react'
 
-const TiltButton = ({ children, className, ...props }: React.ComponentProps<typeof Button> & { children: React.ReactNode }) => {
-    const [tilt, setTilt] = useState({ x: 0, y: 0 })
-    const [isHovering, setIsHovering] = useState(false)
-
-    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-        const rect = e.currentTarget.getBoundingClientRect()
-        const x = (e.clientX - rect.left) / rect.width - 0.5
-        const y = (e.clientY - rect.top) / rect.height - 0.5
-        setTilt({ x: y * -20, y: x * 20 })
-    }
-
-    return (
-        <motion.div
-            onMouseMove={handleMouseMove}
-            onMouseEnter={() => setIsHovering(true)}
-            onMouseLeave={() => { setIsHovering(false); setTilt({ x: 0, y: 0 }) }}
-            animate={{
-                rotateX: tilt.x,
-                rotateY: tilt.y,
-                scale: isHovering ? 1.05 : 1,
-            }}
-            transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-            style={{ perspective: 800, transformStyle: 'preserve-3d' }}
-            className="inline-block"
-        >
-            <Button className={className} {...props} data-hover="true">
-                {children}
-            </Button>
-        </motion.div>
-    )
-}
+// Doors open and the day starts at 8:30 AM IST. Pinned to an explicit offset so the
+// countdown reads the same for every visitor, not just ones sitting in IST.
+const HACKATHON_START = new Date('2026-07-25T08:30:00+05:30')
 
 export const Hero = () => {
     return (
-        <section className="relative min-h-screen w-full flex flex-col pt-28 md:pt-8">
+        <section className="relative min-h-screen w-full flex flex-col pt-20 md:pt-0">
             {/* Background Ambience — subtle, no gradients */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
                 <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-designer-primary/5 rounded-full blur-[150px] mix-blend-screen" />
@@ -52,7 +22,7 @@ export const Hero = () => {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
-                className="w-full flex justify-center pt-10 md:pt-32 pb-4 relative z-40"
+                className="w-full flex justify-center pt-8 md:pt-28 pb-4 relative z-40"
             >
                 <a
                     href="https://gdg.community.dev/gdg-noida/"
@@ -171,25 +141,19 @@ export const Hero = () => {
                     <div className="text-center md:text-left">
                         <p className="text-white/60 text-xs uppercase tracking-[0.3em] mb-1">Hackathon Begins</p>
                         <p className="text-white font-bold text-xl">July 25, 2026</p>
+                        <p className="text-cyan-400 font-mono text-sm mt-1">8:30 AM IST</p>
                     </div>
 
                     <div className="scale-75 md:scale-100 origin-center">
-                        <CountdownTimer />
+                        <CountdownTimer target={HACKATHON_START} />
                     </div>
 
-                    <div className="relative inline-block">
-                        <motion.div
-                            className="absolute inset-0 rounded-full bg-cyan-400/50 blur-xl pointer-events-none"
-                            animate={{ scale: [1, 1.15, 1], opacity: [0.6, 0.15, 0.6] }}
-                            transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
-                        />
-                        <TiltButton
-                            size="lg"
-                            className="relative bg-white text-black hover:bg-gray-100 font-bold rounded-full px-10 h-16 text-lg shadow-[0_8px_30px_rgba(255,255,255,0.15)] transition-all duration-300 group"
-                            onClick={() => window.open('https://www.commudle.com/communities/gdg-noida/hackathons/sketch-n-ship/fill-form/84', '_blank')}
-                        >
-                            Register Now <ArrowRight className="ml-2 w-5 h-5 inline-block group-hover:translate-x-1 transition-transform" />
-                        </TiltButton>
+                    <div
+                        aria-disabled="true"
+                        className="inline-flex items-center gap-2 h-16 px-10 rounded-full border border-white/15 bg-white/[0.04] text-white/40 font-bold text-lg cursor-not-allowed select-none"
+                    >
+                        <Lock className="w-4 h-4" />
+                        Registration Closed
                     </div>
                 </motion.div>
             </div>

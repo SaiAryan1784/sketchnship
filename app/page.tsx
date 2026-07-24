@@ -9,6 +9,7 @@ import { Navbar } from '@/components/sections/Navbar'
 import { AnnouncementBar } from '@/components/sections/AnnouncementBar'
 
 import { Timeline } from '@/components/sections/Timeline'
+import { Agenda } from '@/components/sections/Agenda'
 import { Sponsors } from '@/components/sections/Sponsors'
 import { FAQ } from '@/components/sections/FAQ'
 import { Registration } from '@/components/sections/Registration'
@@ -18,13 +19,14 @@ export default function Home() {
   return (
     <SmoothScroll>
       <CursorFollower />
-      <AnnouncementBar />
+      {/* <AnnouncementBar /> */}
       <Navbar />
       <main className="relative min-h-screen bg-background-dark overflow-x-hidden">
         <Hero />
         <div id="about"><About /></div>
         {/* <div id="tracks"><Tracks /></div> */}
         <div id="timeline"><Timeline /></div>
+        <div id="agenda"><Agenda /></div>
         {/* <div id="prizes"><Prizes /></div> */}
         {/* <Judges /> */}
         <Sponsors />

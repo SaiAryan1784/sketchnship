@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence, useMotionValueEvent, useScroll } from 'framer-motion'
+import { Lock } from 'lucide-react'
 
 const DiscordIcon = ({ className }: { className?: string }) => (
     <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
@@ -13,6 +14,7 @@ const navLinks = [
     { label: 'About', href: '#about' },
     // { label: 'Tracks', href: '#tracks' },
     { label: 'Timeline', href: '#timeline' },
+    { label: 'Agenda', href: '#agenda' },
     // { label: 'Prizes', href: '#prizes' },
     { label: 'FAQ', href: '#faq' },
 ]
@@ -51,7 +53,7 @@ export const Navbar = () => {
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: -100, opacity: 0 }}
                     transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                    className="fixed top-12 left-1/2 -translate-x-1/2 z-50"
+                    className="fixed top-4 left-1/2 -translate-x-1/2 z-50"
                 >
                     {/* Floating pill */}
                     <div className={`flex items-center gap-1 px-2 py-2 rounded-full border transition-all duration-500 ${atTop
@@ -93,16 +95,14 @@ export const Navbar = () => {
                             <DiscordIcon className="w-4 h-4" />
                         </a>
 
-                        {/* Register CTA */}
-                        <a
-                            href="https://www.commudle.com/communities/gdg-noida/hackathons/sketch-n-ship/fill-form/84"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="hidden md:flex h-9 px-5 items-center justify-center text-[13px] font-semibold bg-white text-black rounded-full hover:bg-gray-200 transition-colors shrink-0"
-                            data-hover="true"
+                        {/* Registration is closed */}
+                        <span
+                            aria-disabled="true"
+                            className="hidden md:flex h-9 px-4 items-center justify-center gap-1.5 text-[12px] font-semibold text-white/35 border border-white/10 rounded-full cursor-not-allowed select-none shrink-0"
                         >
-                            Register
-                        </a>
+                            <Lock className="w-3 h-3" />
+                            Registration Closed
+                        </span>
 
                         {/* Mobile toggle */}
                         <button
@@ -152,14 +152,13 @@ export const Navbar = () => {
                                     Join Discord
                                 </a>
                                 <div className="pt-2 px-1">
-                                    <a
-                                        href="https://www.commudle.com/communities/gdg-noida/hackathons/sketch-n-ship/fill-form/84"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="w-full bg-white text-black font-semibold py-2.5 rounded-xl text-sm hover:bg-gray-200 transition-colors block text-center"
+                                    <span
+                                        aria-disabled="true"
+                                        className="w-full flex items-center justify-center gap-2 border border-white/10 text-white/35 font-semibold py-2.5 rounded-xl text-sm cursor-not-allowed select-none"
                                     >
-                                        Register
-                                    </a>
+                                        <Lock className="w-3.5 h-3.5" />
+                                        Registration Closed
+                                    </span>
                                 </div>
                             </motion.div>
                         )}

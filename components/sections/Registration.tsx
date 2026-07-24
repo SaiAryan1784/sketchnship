@@ -1,42 +1,7 @@
 'use client'
 
 import { ScrollReveal } from '@/components/animations/ScrollReveal'
-import { Button } from '@/components/ui/button'
-import { motion } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
-import { useState } from 'react'
-
-const TiltButton = ({ children, className, ...props }: React.ComponentProps<typeof Button> & { children: React.ReactNode }) => {
-    const [tilt, setTilt] = useState({ x: 0, y: 0 })
-    const [isHovering, setIsHovering] = useState(false)
-
-    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-        const rect = e.currentTarget.getBoundingClientRect()
-        const x = (e.clientX - rect.left) / rect.width - 0.5
-        const y = (e.clientY - rect.top) / rect.height - 0.5
-        setTilt({ x: y * -15, y: x * 15 })
-    }
-
-    return (
-        <motion.div
-            onMouseMove={handleMouseMove}
-            onMouseEnter={() => setIsHovering(true)}
-            onMouseLeave={() => { setIsHovering(false); setTilt({ x: 0, y: 0 }) }}
-            animate={{
-                rotateX: tilt.x,
-                rotateY: tilt.y,
-                scale: isHovering ? 1.08 : 1,
-            }}
-            transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-            style={{ perspective: 800, transformStyle: 'preserve-3d' }}
-            className="inline-block"
-        >
-            <Button className={className} {...props} data-hover="true">
-                {children}
-            </Button>
-        </motion.div>
-    )
-}
+import { Lock } from 'lucide-react'
 
 export const Registration = () => {
     return (
@@ -53,19 +18,19 @@ export const Registration = () => {
                         <span className="text-cyan-400">Sketch & Ship?</span>
                     </h2>
                     <p className="text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
-                        Join <span className="font-bold text-white">200-250 participants</span> for a high-energy day of design, development, and product building. Start with a sketch. End with something real. Spots are limited.
+                        <span className="font-bold text-white">200-250 participants</span> are in for a high-energy day of design, development, and product building. Start with a sketch. End with something real.
                     </p>
 
-                    <TiltButton
-                        size="lg"
-                        className="h-16 px-12 text-xl font-bold rounded-full bg-white text-black hover:bg-gray-100 shadow-[0_8px_30px_rgba(255,255,255,0.15)] group"
-                        onClick={() => window.open('https://www.commudle.com/communities/gdg-noida/hackathons/sketch-n-ship/fill-form/84', '_blank')}
+                    <div
+                        aria-disabled="true"
+                        className="inline-flex items-center gap-3 h-16 px-12 text-xl font-bold rounded-full border border-white/15 bg-white/[0.04] text-white/40 cursor-not-allowed select-none"
                     >
-                        Secure My Spot <ArrowRight className="ml-2 w-6 h-6 inline-block group-hover:translate-x-1 transition-transform" />
-                    </TiltButton>
+                        <Lock className="w-5 h-5" />
+                        Registration Closed
+                    </div>
 
                     <p className="mt-8 text-sm text-gray-500 font-mono">
-                        Registration closes <span className="text-[#a1a100]">July 10th</span> &bull; Free for accepted hackers
+                        Registration closed <span className="text-[#a1a100]">July 10th</span> &bull; Shortlisted teams, see you July 25th
                     </p>
                 </ScrollReveal>
             </div>
