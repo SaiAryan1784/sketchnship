@@ -2,9 +2,10 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { CalendarPlus } from 'lucide-react'
+import { CalendarPlus, Download, User } from 'lucide-react'
 import { ScrollReveal } from '@/components/animations/ScrollReveal'
 import { ProblemStatementsCTA } from '@/components/sections/ProblemStatementsCTA'
+import { NotionIcon } from '@/components/ui/notion-icon'
 
 type Phase = 'logistics' | 'sketch' | 'ship' | 'judge'
 
@@ -14,6 +15,13 @@ interface AgendaItem {
     title: string
     phase: Phase
     desc: string
+    /** Named presenter, shown on the item when set */
+    speaker?: string
+    /**
+     * Brand mark that replaces the emoji wherever the item is drawn. `emoji` is still
+     * required and still used for the calendar exports, which are plain text.
+     */
+    icon?: React.ComponentType<{ className?: string }>
 }
 
 // `min` = minutes from midnight IST on event day
@@ -22,6 +30,7 @@ const agenda: AgendaItem[] = [
     { min: 570, emoji: '☕', title: 'Networking & Snacks', phase: 'logistics', desc: 'Meet the other teams, mentors, and organisers over coffee.' },
     { min: 600, emoji: '🎤', title: 'Opening Keynote', phase: 'sketch', desc: 'Welcome, house rules, and how the day will run.' },
     { min: 615, emoji: '🚀', title: 'Hackathon Begins', phase: 'ship', desc: 'Problem statements drop. The clock starts now.' },
+    { min: 690, emoji: '📓', title: 'Intro to Notion', phase: 'sketch', desc: 'Sponsor session on running your team and your build inside Notion.', speaker: 'Omna Gupta', icon: NotionIcon },
     { min: 720, emoji: '💡', title: 'Mentorship Round', phase: 'sketch', desc: 'Mentors circle the room to unblock, review, and push your build.' },
     { min: 780, emoji: '🍽️', title: 'Lunch', phase: 'logistics', desc: 'Refuel and reset. Builds keep running while you eat.' },
     { min: 885, emoji: '📤', title: 'Submission Deadline', phase: 'ship', desc: 'Final commits and demo links go in. Nothing accepted after this.' },
@@ -142,7 +151,7 @@ const buildIcs = () => {
             `DTSTART:${toIcsUtc(instantFor(item.min))}`,
             `DTEND:${toIcsUtc(instantFor(endMin))}`,
             `SUMMARY:${escapeIcs(`${item.emoji} ${item.title}`)}`,
-            `DESCRIPTION:${escapeIcs(item.desc)}`,
+            `DESCRIPTION:${escapeIcs(item.speaker ? `${item.desc}\n\nSpeaker: ${item.speaker}` : item.desc)}`,
             'END:VEVENT'
         )
     })
@@ -151,6 +160,48 @@ const buildIcs = () => {
     // RFC 5545 requires CRLF line endings
     return lines.join('\r\n')
 }
+
+// TODO: fill in the venue address so it lands in people's calendars
+const VENUE = ''
+
+/**
+ * Google's template URL carries exactly one event, and eleven separate entries for a
+ * day you are physically attending just means eleven notifications. So this is a single
+ * 08:30 to 18:30 block with the run of show in the description.
+ *
+ * Deliberately not the Calendar API: inserting events needs OAuth with the
+ * `calendar.events` scope, which Google treats as sensitive and gates behind app
+ * verification. This link needs no auth and no backend.
+ */
+const buildGoogleCalendarUrl = () => {
+    const dayStart = instantFor(agenda[0].min)
+    const dayEnd = instantFor(agenda[agenda.length - 1].min + 30)
+
+    const details = [
+        'Full run of show for Sketch N Ship with AI, presented by GDG Noida.',
+        '',
+        ...agenda.map((item) => {
+            const who = item.speaker ? ` (${item.speaker})` : ''
+            return `${formatTime(item.min)} · ${item.emoji} ${item.title}${who}`
+        }),
+        '',
+        'All times IST.',
+    ].join('\n')
+
+    const params = new URLSearchParams({
+        action: 'TEMPLATE',
+        text: 'Sketch N Ship with AI · Hackathon Day',
+        dates: `${toIcsUtc(dayStart)}/${toIcsUtc(dayEnd)}`,
+        details,
+        ctz: 'Asia/Kolkata',
+    })
+    if (VENUE) params.set('location', VENUE)
+
+    return `https://calendar.google.com/calendar/render?${params.toString()}`
+}
+
+// Deterministic, so it is safe to compute once at module scope
+const GOOGLE_CALENDAR_URL = buildGoogleCalendarUrl()
 
 const downloadIcs = () => {
     const blob = new Blob([buildIcs()], { type: 'text/calendar;charset=utf-8' })
@@ -330,13 +381,26 @@ export const Agenda = () => {
                             {status === 'after' && <span>That&apos;s a wrap</span>}
                         </div>
 
-                        <button
-                            onClick={downloadIcs}
+                        <a
+                            href={GOOGLE_CALENDAR_URL}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-cyan-400/30 bg-cyan-400/10 text-cyan-400 font-mono text-xs tracking-widest uppercase hover:bg-cyan-400/20 hover:border-cyan-400/50 transition-colors"
                             data-hover="true"
                         >
                             <CalendarPlus className="w-3.5 h-3.5" />
-                            Add to Calendar
+                            Add to Google Calendar
+                        </a>
+
+                        {/* Fallback for Apple Calendar and Outlook, which have no equivalent link format */}
+                        <button
+                            onClick={downloadIcs}
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-white/30 font-mono text-xs tracking-widest uppercase hover:text-white/70 transition-colors"
+                            data-hover="true"
+                            title="Download .ics for Apple Calendar or Outlook"
+                        >
+                            <Download className="w-3.5 h-3.5" />
+                            .ics
                         </button>
                     </div>
 
@@ -366,14 +430,21 @@ export const Agenda = () => {
                                 aria-live="polite"
                             >
                                 <div className={`w-16 h-16 rounded-2xl border ${activeStyle.border} ${activeStyle.bg} ${activeStyle.glow} flex items-center justify-center text-3xl mb-6`}>
-                                    {active.emoji}
+                                    {active.icon ? <active.icon className="w-8 h-8 text-white" /> : active.emoji}
                                 </div>
 
                                 <div className={`font-mono text-4xl font-bold mb-3 ${activeStyle.text}`}>
                                     {formatTime(active.min)}
                                 </div>
 
-                                <h3 className="text-3xl font-bold font-heading text-white mb-4 leading-tight">{active.title}</h3>
+                                <h3 className="text-3xl font-bold font-heading text-white mb-3 leading-tight">{active.title}</h3>
+
+                                {active.speaker && (
+                                    <div className={`flex items-center gap-2 text-sm font-medium mb-3 ${activeStyle.text}`}>
+                                        <User className="w-3.5 h-3.5 shrink-0" />
+                                        {active.speaker}
+                                    </div>
+                                )}
 
                                 <p className="text-muted-foreground leading-relaxed mb-6">{active.desc}</p>
 
@@ -474,7 +545,7 @@ export const Agenda = () => {
                                             <span
                                                 className={`text-lg leading-none transition-all duration-200 ${isActive ? 'opacity-100 scale-125' : 'opacity-45 group-hover:opacity-90'}`}
                                             >
-                                                {item.emoji}
+                                                {item.icon ? <item.icon className="w-4.5 h-4.5 text-white" /> : item.emoji}
                                             </span>
                                             <span
                                                 className={`font-mono text-[10px] whitespace-nowrap transition-colors duration-200 ${isActive ? `${style.text} font-bold` : 'text-white/35 group-hover:text-white/75'}`}
@@ -492,7 +563,7 @@ export const Agenda = () => {
                                                 tickRefs.current[i] = el
                                             }}
                                             onClick={() => setSelected(i)}
-                                            aria-label={`${formatTime(item.min)}, ${item.title}`}
+                                            aria-label={item.speaker ? `${formatTime(item.min)}, ${item.title}, ${item.speaker}` : `${formatTime(item.min)}, ${item.title}`}
                                             aria-pressed={isActive}
                                             tabIndex={isActive ? 0 : -1}
                                             data-hover="true"
@@ -564,7 +635,9 @@ export const Agenda = () => {
                                     data-hover="true"
                                 >
                                     <div className="flex items-center gap-3 px-4 py-4">
-                                        <span className="text-xl shrink-0">{item.emoji}</span>
+                                        <span className="text-xl shrink-0">
+                                            {item.icon ? <item.icon className="w-5 h-5 text-white" /> : item.emoji}
+                                        </span>
                                         <div className="min-w-0 flex-1">
                                             <div className={`font-mono text-xs mb-1 ${style.text}`}>{formatTime(item.min)}</div>
                                             <div className="text-white font-medium leading-snug">{item.title}</div>
@@ -595,6 +668,12 @@ export const Agenda = () => {
                                                 className="overflow-hidden"
                                             >
                                                 <div className="px-4 pb-4 pl-12">
+                                                    {item.speaker && (
+                                                        <div className={`flex items-center gap-1.5 text-xs font-medium mb-2 ${style.text}`}>
+                                                            <User className="w-3 h-3 shrink-0" />
+                                                            {item.speaker}
+                                                        </div>
+                                                    )}
                                                     <p className="text-white/45 text-sm leading-relaxed mb-3">{item.desc}</p>
                                                     <span className={`inline-block px-2.5 py-1 rounded-full text-[10px] font-mono uppercase tracking-widest border ${style.border} ${style.bg} ${style.text}`}>
                                                         {style.label}
